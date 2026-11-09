@@ -17,5 +17,9 @@ export function preloadImages(urls: string[]): Promise<void> {
 }
 
 export const INVITATION_IMAGE_URLS = [
+  '/envelope-bg.webp',
+  '/envelope-cutout.webp',
+  '/hero-card.webp',
+  '/couple-illustration.webp',
   '/Screenshot 2026-10-18 035242.png',
 ] as const;

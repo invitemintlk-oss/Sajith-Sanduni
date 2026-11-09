@@ -1,7 +1,7 @@
 /** Couple names used across the invitation and the admin message. */
 export const COUPLE = {
-  bride: 'Adeesha',
-  groom: 'Thilina',
+  bride: 'Sanduni',
+  groom: 'Sajith',
 } as const;
 
 export const PREFIXES = [

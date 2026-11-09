@@ -3,11 +3,11 @@
 
 @theme {
   /* Dusty rose / nude palette */
-  --color-brand-plum: #ba8281;
-  --color-brand-lavender: #b58466;
-  --color-brand-rose: #f3ebe2;
-  --color-brand-blush: #faf6f1;
-  --color-brand-ink: #6e4636; /* deep tone of #b58466, for readable text */
+  --color-brand-plum: #8a2a45;
+  --color-brand-lavender: #c98a9a;
+  --color-brand-rose: #fbe4e9;
+  --color-brand-blush: #FFF3F5;
+  --color-brand-ink: #6A1E33;
 
   --font-serif: "Cormorant Garamond", serif;
   --font-display: "Great Vibes", cursive;
@@ -32,9 +32,11 @@ html, body {
   -webkit-text-size-adjust: 100%;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+@layer base {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 .glass {

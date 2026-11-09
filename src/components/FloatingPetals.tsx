@@ -17,11 +17,11 @@ interface Petal {
 
 // [edge, base] — rose tones built around the invitation palette
 const COLORS: [string, string][] = [
-  ['#e4b3ab', '#ba8281'],
-  ['#d99a96', '#a8636a'],
-  ['#e9c3b3', '#b58466'],
-  ['#dca5a0', '#9e5a5e'],
-  ['#f0cfc4', '#c98f86'],
+  ['#f6c9d3', '#c9577a'],
+  ['#efb3c1', '#9b2f4d'],
+  ['#f9dbe2', '#d27a93'],
+  ['#e8a3b4', '#6A1E33'],
+  ['#fbe4e9', '#b8486a'],
 ];
 
 function getPetalCount() {

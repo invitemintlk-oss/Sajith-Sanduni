@@ -20,19 +20,12 @@ export default function App() {
 
   let eventLabel = 'Our Wedding Celebration';
 
-  const weddingDate = new Date('2026-12-10T10:25:00');
+  const weddingDate = new Date('2026-12-19T18:00:00');
 
   useEffect(() => {
     if (isAdminRoute()) return;
 
     preloadImages([...INVITATION_IMAGE_URLS]);
-    
-    // Preload video
-    const videoLink = document.createElement('link');
-    videoLink.rel = 'preload';
-    videoLink.as = 'video';
-    videoLink.href = '/intro.mp4';
-    document.head.appendChild(videoLink);
   }, []);
 
   const ensureAudio = useCallback(() => {
@@ -116,9 +109,6 @@ export default function App() {
         isMusicPlaying={isMusicPlaying}
         onToggleMusic={toggleMusic}
       />
-      
-      {/* Hidden video to force preload across all devices */}
-      <video src="/intro.mp4" preload="auto" muted playsInline style={{ display: 'none' }} />
     </>
   );
 }
