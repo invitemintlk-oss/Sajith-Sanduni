@@ -1,12 +1,12 @@
 /**
- * Adeesha & Thilina — RSVP endpoint
- * Spreadsheet: https://docs.google.com/spreadsheets/d/1C6UGnFFZWreYxWQZ3AHu7HjxNeQ7yfwIfZ-ev-l6SEY/edit
+ * Sajith & Sanduni — RSVP endpoint
+ * Spreadsheet: https://docs.google.com/spreadsheets/d/10Z6p0d_Vu02On-TbNtbcZPf06cXfE459hFEuOxLNQ3c/edit
  *
  * The "RSVP" tab and its headers are created automatically on the first
  * response (or run setup() once from the editor to create them now).
  */
 
-const SPREADSHEET_ID = '1C6UGnFFZWreYxWQZ3AHu7HjxNeQ7yfwIfZ-ev-l6SEY';
+const SPREADSHEET_ID = '10Z6p0d_Vu02On-TbNtbcZPf06cXfE459hFEuOxLNQ3c';
 const SHEET_NAME = 'RSVP';
 
 const HEADERS = [
@@ -20,8 +20,8 @@ const HEADERS = [
 
 const COLUMN_WIDTHS = [170, 220, 100, 140, 220, 320];
 
-const HEADER_BG = '#4a2c1d';
-const HEADER_FG = '#faf6f1';
+const HEADER_BG = '#6A1E33'; // burgundy
+const HEADER_FG = '#FFF3F5'; // blush
 
 /** Receives RSVP submissions from the website. */
 function doPost(e) {

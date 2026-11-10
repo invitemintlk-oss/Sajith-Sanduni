@@ -1,6 +1,6 @@
 # RSVP → Google Sheet setup
 
-Sheet: https://docs.google.com/spreadsheets/d/1C6UGnFFZWreYxWQZ3AHu7HjxNeQ7yfwIfZ-ev-l6SEY/edit
+Sheet: https://docs.google.com/spreadsheets/d/10Z6p0d_Vu02On-TbNtbcZPf06cXfE459hFEuOxLNQ3c/edit
 
 The script creates an **RSVP** tab with these headers automatically:
 

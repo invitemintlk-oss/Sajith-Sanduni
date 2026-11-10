@@ -3,7 +3,7 @@
  * Paste the URL from Deploy > New deployment here.
  */
 export const RSVP_SCRIPT_URL: string =
-  'https://script.google.com/macros/s/AKfycbyuK3L4S89Vk-nrGJLRBnI7IbJyFDFTgbtpGFpdOFgkSqioM3zAn8RiV1yuDws2zejHGw/exec';
+  'https://script.google.com/macros/s/AKfycbwFdroR0ysfNq8Kp2jAtbJsejueYY6YjPothiN3sEwEZkKsdVZE08jh1hCs0GXv2c76/exec';
 
 export const isRsvpConfigured = () => /^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(RSVP_SCRIPT_URL);
 
