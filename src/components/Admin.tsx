@@ -11,7 +11,7 @@ import {
 } from '../utils/guest';
 import { GOLD_TEXT } from '../utils/gold';
 
-const BROWN = '#4a2c1d';
+const BROWN = '#6A1E33';
 
 async function copyText(text: string): Promise<void> {
   try {
@@ -74,7 +74,7 @@ export const Admin: React.FC = () => {
       .catch(() => toast.error('Could not copy. Please copy it manually.'));
 
   const inputClass =
-    'w-full bg-white px-5 py-3.5 rounded-xl border border-[#8f6420]/25 focus:border-[#8f6420]/60 focus:ring-2 focus:ring-[#8f6420]/15 outline-none transition font-serif text-lg';
+    'w-full bg-white px-5 py-3.5 rounded-xl border border-[#a77a3f]/25 focus:border-[#a77a3f]/60 focus:ring-2 focus:ring-[#a77a3f]/15 outline-none transition font-serif text-lg';
   const labelClass = 'block text-[11px] uppercase tracking-[0.25em] font-semibold mb-2';
   const copyBtnClass =
     'flex-1 inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-full text-[11px] uppercase tracking-[0.2em] font-semibold transition active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100';
@@ -85,7 +85,7 @@ export const Admin: React.FC = () => {
         <div className="mb-8 flex justify-between items-center">
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#8f6420]/25 bg-white/70 hover:bg-white text-sm transition"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#a77a3f]/25 bg-white/70 hover:bg-white text-sm transition"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Invitation
@@ -98,14 +98,14 @@ export const Admin: React.FC = () => {
             Invitation Links
           </h1>
           <p className="mt-3 font-['Cormorant_Garamond',_serif] italic text-lg opacity-80">
-            Create a personal link and WhatsApp message for each guest.
+            Create a personal homecoming link and WhatsApp message for each guest.
           </p>
         </div>
 
         {/* Form */}
         <form
           onSubmit={handleGenerate}
-          className="bg-white/80 rounded-3xl border border-[#8f6420]/15 shadow-[0_20px_50px_-20px_rgba(110,70,54,0.25)] p-6 sm:p-8 space-y-6"
+          className="bg-white/80 rounded-3xl border border-[#a77a3f]/15 shadow-[0_20px_50px_-20px_rgba(106,30,51,0.25)] p-6 sm:p-8 space-y-6"
         >
           <div>
             <label htmlFor="prefix" className={labelClass}>
@@ -141,7 +141,7 @@ export const Admin: React.FC = () => {
           </div>
 
           {/* Live greeting preview */}
-          <div className="rounded-2xl bg-[#faf6f1] border border-[#8f6420]/15 px-5 py-4 text-center">
+          <div className="rounded-2xl bg-[#FFF3F5] border border-[#a77a3f]/15 px-5 py-4 text-center">
             <p className="text-[10px] uppercase tracking-[0.3em] font-semibold opacity-60 mb-1">Greeting preview</p>
             <p className="font-['Cormorant_Garamond',_serif] text-2xl">
               {liveDisplayName ? getGreeting(liveDisplayName) : <span className="opacity-40 italic">Dear … ❤️</span>}
@@ -150,7 +150,7 @@ export const Admin: React.FC = () => {
 
           <button
             type="submit"
-            className="w-full inline-flex items-center justify-center gap-2 py-4 rounded-full bg-[#4a2c1d] hover:bg-[#3a2216] text-[#faf6f1] text-xs uppercase tracking-[0.3em] font-semibold transition active:scale-[0.98]"
+            className="w-full inline-flex items-center justify-center gap-2 py-4 rounded-full bg-[#6A1E33] hover:bg-[#4a1222] text-[#FFF3F5] text-xs uppercase tracking-[0.3em] font-semibold transition active:scale-[0.98]"
           >
             <LinkIcon className="w-4 h-4" />
             Generate Link
@@ -158,7 +158,7 @@ export const Admin: React.FC = () => {
         </form>
 
         {/* Result */}
-        <div className="mt-6 bg-white/80 rounded-3xl border border-[#8f6420]/15 shadow-[0_20px_50px_-20px_rgba(110,70,54,0.25)] p-6 sm:p-8 space-y-5">
+        <div className="mt-6 bg-white/80 rounded-3xl border border-[#a77a3f]/15 shadow-[0_20px_50px_-20px_rgba(106,30,51,0.25)] p-6 sm:p-8 space-y-5">
           <div>
             <p className={labelClass}>Generated Link</p>
             {generated ? (
@@ -166,12 +166,12 @@ export const Admin: React.FC = () => {
                 href={generated.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block break-all rounded-xl bg-[#faf6f1] border border-[#8f6420]/20 px-4 py-3 font-mono text-sm text-[#8f6420] hover:underline"
+                className="block break-all rounded-xl bg-[#FFF3F5] border border-[#a77a3f]/20 px-4 py-3 font-mono text-sm text-[#a77a3f] hover:underline"
               >
                 {generated.url}
               </a>
             ) : (
-              <p className="rounded-xl border-2 border-dashed border-[#8f6420]/20 px-4 py-3 text-sm italic opacity-60">
+              <p className="rounded-xl border-2 border-dashed border-[#a77a3f]/20 px-4 py-3 text-sm italic opacity-60">
                 Enter a name and click Generate Link.
               </p>
             )}
@@ -182,7 +182,7 @@ export const Admin: React.FC = () => {
               <p className={`${labelClass} flex items-center gap-2`}>
                 <MessageCircle className="w-3.5 h-3.5" /> Message preview
               </p>
-              <div className="whitespace-pre-wrap break-words rounded-xl bg-[#faf6f1] border border-[#8f6420]/15 p-4 text-sm leading-relaxed font-serif">
+              <div className="whitespace-pre-wrap break-words rounded-xl bg-[#FFF3F5] border border-[#a77a3f]/15 p-4 text-sm leading-relaxed font-serif">
                 {buildInviteMessage(generated.displayName, generated.url)}
               </div>
             </div>
@@ -193,7 +193,7 @@ export const Admin: React.FC = () => {
               type="button"
               onClick={copyLink}
               disabled={!generated}
-              className={`${copyBtnClass} border border-[#4a2c1d]/30 hover:bg-[#4a2c1d]/5`}
+              className={`${copyBtnClass} border border-[#6A1E33]/30 hover:bg-[#6A1E33]/5`}
             >
               <Copy className="w-4 h-4" />
               Copy Link Only
@@ -202,7 +202,7 @@ export const Admin: React.FC = () => {
               type="button"
               onClick={copyMessage}
               disabled={!generated}
-              className={`${copyBtnClass} bg-[#8f6420] hover:bg-[#7a5418] text-[#faf6f1]`}
+              className={`${copyBtnClass} bg-[#a77a3f] hover:bg-[#8c6430] text-[#FFF3F5]`}
             >
               <Copy className="w-4 h-4" />
               Copy Full Message

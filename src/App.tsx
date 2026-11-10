@@ -18,7 +18,7 @@ export default function App() {
   // Personal links: /{guestName}?p={prefix} (older ?title=&name= links still work)
   const fullInviteeName = readGuestFromLocation();
 
-  let eventLabel = 'Our Wedding Celebration';
+  let eventLabel = 'Our Homecoming Celebration';
 
   const weddingDate = new Date('2026-12-19T18:00:00');
 

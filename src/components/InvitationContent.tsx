@@ -108,7 +108,7 @@ export function InvitationContent({
             <div className="w-12 h-px bg-[#C9A46A]/40 mx-auto my-6" />
 
             <p className="text-[9px] sm:text-[10px] font-sans tracking-[0.2em] text-[#f2bccb]/70 uppercase">
-              Want a beautiful wedding website like this? <br className="sm:hidden" />Create yours with{' '}
+              Want a beautiful invitation website like this? <br className="sm:hidden" />Create yours with{' '}
               <a
                 target="_blank"
                 rel="noreferrer"

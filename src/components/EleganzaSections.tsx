@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { Phone, MapPin } from 'lucide-react';
 import { COUPLE } from '../utils/guest';
 
-/** Wedding details shown in the invitation sections. */
+/** Homecoming details shown in the invitation sections. */
 export const WEDDING = {
   groomParents: 'Mr. & Mrs. MZF Mohamed',
   brideParents: 'Mr. & Mrs. Fernando',
@@ -170,7 +170,7 @@ export const InvitationSection: React.FC<{ guestName?: string }> = ({ guestName 
                 </Serif>
               </div>
               <Serif className="mt-6 italic text-lg sm:text-xl text-[#f2bccb] leading-snug">
-                to celebrate the marriage of
+                to celebrate the homecoming of
                 <br />
                 their loving children
               </Serif>
@@ -200,6 +200,19 @@ export const InvitationSection: React.FC<{ guestName?: string }> = ({ guestName 
                 <span style={GOLD_TEXT}>{COUPLE.bride}</span>
               </p>
             </Reveal>
+
+            {guestName && (
+              <Reveal delay={0.6} className="mt-10">
+                <Sprig className="w-28 mb-5" color="#ecd3a4" />
+                <Serif className="italic text-xl sm:text-2xl leading-snug text-[#f2bccb] max-w-sm mx-auto">
+                  We cordially invite{' '}
+                  <span className="not-italic font-semibold" style={GOLD_TEXT}>
+                    {guestName}
+                  </span>{' '}
+                  to celebrate our special day with us.
+                </Serif>
+              </Reveal>
+            )}
           </div>
         </div>
       </div>
@@ -218,7 +231,7 @@ export const DateSection: React.FC = () => (
     <Corner className="bottom-4 right-4 sm:bottom-8 sm:right-8 -scale-100" />
 
     <Reveal className="relative text-center">
-      <Eyebrow light>The Wedding Day</Eyebrow>
+      <Eyebrow light>The Homecoming</Eyebrow>
       <Sprig className="w-32 mt-4 mb-8" color="#ecd3a4" />
 
       <p className="font-['Cinzel',_serif] text-2xl sm:text-3xl tracking-[0.35em] pl-[0.35em] uppercase">
@@ -337,7 +350,7 @@ export const CountdownSection: React.FC<{ targetDate: Date }> = ({ targetDate })
               Counting down
             </p>
             <p className="font-['Pinyon_Script',_cursive] text-[6.3cqw] leading-tight mt-[1cqw]">
-              <span style={GOLD_TEXT}>Until We Say I Do</span>
+              <span style={GOLD_TEXT}>Until We Celebrate</span>
             </p>
             <Sprig className="w-[60%] mt-[1cqw] mb-[4cqw]" color="#ecd3a4" />
             <div className="grid grid-cols-2 gap-y-[4cqw]">
