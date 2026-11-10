@@ -30,20 +30,24 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
       {visible && (
         <motion.div
           key="envelope-intro"
-          className="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-brand-blush cursor-pointer select-none overflow-hidden"
+          className="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-[#6A1E33] cursor-pointer select-none overflow-hidden"
           onClick={open}
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          {/* Blush floral backdrop */}
+          {/* Satin drape, deepened toward burgundy */}
           <img
-            src="/envelope-bg.webp"
+            src="/bg-satin.webp"
             alt=""
-            className="absolute inset-0 w-full h-full max-w-none object-cover pointer-events-none select-none"
-            style={{ height: '100%', objectPosition: 'center' }}
+            className="absolute inset-0 w-full max-w-none object-cover pointer-events-none select-none"
+            style={{ height: '100%' }}
             draggable={false}
           />
+          <div className="absolute inset-0 pointer-events-none bg-[#6A1E33]/45 mix-blend-multiply" />
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_65%_40%_at_50%_47%,rgba(255,214,224,0.28)_0%,transparent_70%)]" />
+          {/* Fine gold inner frame */}
+          <div className="absolute inset-4 sm:inset-8 border border-[#C9A46A]/50 pointer-events-none" />
 
           <motion.img
             src="/envelope-cutout.webp"
@@ -69,7 +73,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                 transition={{ delay: 0.6, duration: 0.8 }}
               >
                 <motion.span
-                  className="block whitespace-nowrap bg-[#6e1a2e]/85 backdrop-blur-md px-8 py-4 pl-[calc(2rem+0.4em)] rounded-full border border-[#e8c9a8]/40 shadow-[0_8px_24px_rgba(70,15,30,0.3)] text-[11px] font-sans uppercase tracking-[0.4em] text-[#f7e7cf] font-medium"
+                  className="block whitespace-nowrap bg-[#FFF3F5] px-8 py-4 pl-[calc(2rem+0.4em)] rounded-full border border-[#C9A46A] shadow-[0_8px_24px_rgba(0,0,0,0.35)] text-[11px] font-sans uppercase tracking-[0.4em] text-[#6A1E33] font-semibold"
                   animate={{ scale: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }}
                   transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
                 >

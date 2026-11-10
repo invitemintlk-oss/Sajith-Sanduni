@@ -26,6 +26,8 @@ export const BLUSH = '#FFF3F5';
 export const GOLD = '#C9A46A';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
+/** Width / height of the curtain countdown background (675 x 1200). */
+const CURTAIN_RATIO = 675 / 1200;
 
 /** Deep burgundy velvet background. */
 export const VELVET: React.CSSProperties = {
@@ -33,25 +35,9 @@ export const VELVET: React.CSSProperties = {
     'radial-gradient(ellipse at 50% 0%, #8c2a46 0%, #6A1E33 45%, #4a1222 100%)',
 };
 
-/** Soft blush background with a faint rose glow. */
-const BLUSH_BG: React.CSSProperties = {
-  background:
-    'radial-gradient(ellipse at 20% 10%, #fde3ea 0%, transparent 55%), radial-gradient(ellipse at 85% 90%, #f9d4de 0%, transparent 55%), #FFF3F5',
-};
-
 /** Champagne-gold gradient text for use on burgundy. */
 export const GOLD_TEXT: React.CSSProperties = {
   backgroundImage: 'linear-gradient(135deg, #b98d4f 0%, #ecd3a4 40%, #fff1d6 52%, #c9a46a 70%, #a77a3f 100%)',
-  WebkitBackgroundClip: 'text',
-  backgroundClip: 'text',
-  color: 'transparent',
-  padding: '0.12em 0.25em',
-  margin: '-0.12em -0.25em',
-};
-
-/** Burgundy-to-rose gradient text for use on blush. */
-const WINE_TEXT: React.CSSProperties = {
-  backgroundImage: 'linear-gradient(135deg, #4a1222 0%, #6A1E33 40%, #a8405f 55%, #6A1E33 75%)',
   WebkitBackgroundClip: 'text',
   backgroundClip: 'text',
   color: 'transparent',
@@ -130,10 +116,10 @@ const Serif: React.FC<{ children: React.ReactNode; className?: string }> = ({ ch
 
 /** Families, guest blessing and the couple's names. */
 export const InvitationSection: React.FC<{ guestName?: string }> = ({ guestName }) => (
-  <section className="px-4 py-20 sm:py-28" style={BLUSH_BG}>
+  <section className="px-4 py-20 sm:py-28">
     <Reveal>
-      <div className="relative mx-auto w-full max-w-xl rounded-t-[12rem] sm:rounded-t-[16rem] p-[3px] bg-gradient-to-b from-[#e3c48f] via-[#C9A46A] to-[#a77a3f] shadow-[0_40px_80px_-30px_rgba(106,30,51,0.55)]">
-        <div className="relative overflow-hidden rounded-t-[12rem] sm:rounded-t-[16rem] bg-[#fffafb]">
+      <div className="relative mx-auto w-full max-w-xl rounded-t-[12rem] sm:rounded-t-[16rem] p-[3px] bg-gradient-to-b from-[#ecd3a4] via-[#C9A46A] to-[#a77a3f] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.75)]">
+        <div className="relative overflow-hidden rounded-t-[12rem] sm:rounded-t-[16rem] bg-[#3f0f1d]/90 backdrop-blur-sm">
           {/* Burgundy arch header */}
           <div className="relative pt-16 pb-10 px-8 text-center text-[#FFF3F5]" style={VELVET}>
             <div className="absolute inset-3 rounded-t-[11rem] sm:rounded-t-[15rem] border border-[#C9A46A]/50 pointer-events-none" />
@@ -154,35 +140,36 @@ export const InvitationSection: React.FC<{ guestName?: string }> = ({ guestName 
             <path d={`M0 0 H400 V2 ${Array.from({ length: 20 }, (_, i) => `Q${i * 20 + 10} 16 ${i * 20} 2`).reverse().join(' ')} Z`} fill="url(#scallop)" />
           </svg>
 
-          <div className="relative px-8 pt-10 pb-16 sm:px-16 text-center text-[#6A1E33]">
-            <Corner className="bottom-2 left-2 -scale-y-100" />
-            <Corner className="bottom-2 right-2 -scale-100" />
+          <div className="relative px-8 pt-10 pb-16 sm:px-16 text-center text-[#fde3ea]">
+            <div className="absolute inset-3 top-0 border-x border-b border-[#C9A46A]/35 pointer-events-none" />
+            <Corner className="bottom-4 left-4 -scale-y-100" />
+            <Corner className="bottom-4 right-4 -scale-100" />
 
             <Reveal delay={0.1}>
-              <Eyebrow>Loving son of</Eyebrow>
-              <Serif className="mt-2 text-2xl sm:text-3xl font-semibold">{WEDDING.groomParents}</Serif>
+              <Eyebrow light>Loving son of</Eyebrow>
+              <Serif className="mt-2 text-2xl sm:text-3xl font-semibold text-[#FFF3F5]">{WEDDING.groomParents}</Serif>
             </Reveal>
 
             <Reveal delay={0.2} className="my-6 flex items-center justify-center gap-4">
               <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#C9A46A]" />
-              <Serif className="italic text-xl sm:text-2xl text-[#a8405f]">together with</Serif>
+              <Serif className="italic text-xl sm:text-2xl text-[#f2bccb]">together with</Serif>
               <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#C9A46A]" />
             </Reveal>
 
             <Reveal delay={0.3}>
-              <Eyebrow>Loving daughter of</Eyebrow>
-              <Serif className="mt-2 text-2xl sm:text-3xl font-semibold">{WEDDING.brideParents}</Serif>
+              <Eyebrow light>Loving daughter of</Eyebrow>
+              <Serif className="mt-2 text-2xl sm:text-3xl font-semibold text-[#FFF3F5]">{WEDDING.brideParents}</Serif>
             </Reveal>
 
             <Reveal delay={0.4} className="mt-10">
-              <Serif className="italic text-lg sm:text-xl text-[#a8405f]">request the blessing of</Serif>
-              <div className="relative mx-auto mt-4 max-w-sm rounded-full px-6 py-4 text-[#FFF3F5] shadow-[0_12px_30px_-12px_rgba(106,30,51,0.7)]" style={VELVET}>
+              <Serif className="italic text-lg sm:text-xl text-[#f2bccb]">request the blessing of</Serif>
+              <div className="relative mx-auto mt-4 max-w-sm rounded-full px-6 py-4 text-[#FFF3F5] shadow-[0_0_0_1.5px_#C9A46A,0_12px_30px_-12px_rgba(0,0,0,0.8)]" style={VELVET}>
                 <div className="absolute inset-1 rounded-full border border-[#C9A46A]/60 pointer-events-none" />
                 <Serif className="text-2xl sm:text-3xl font-semibold tracking-wide">
                   <span style={GOLD_TEXT}>{guestName || 'Our Beloved Guests'}</span>
                 </Serif>
               </div>
-              <Serif className="mt-6 italic text-lg sm:text-xl text-[#a8405f] leading-snug">
+              <Serif className="mt-6 italic text-lg sm:text-xl text-[#f2bccb] leading-snug">
                 to celebrate the marriage of
                 <br />
                 their loving children
@@ -191,12 +178,12 @@ export const InvitationSection: React.FC<{ guestName?: string }> = ({ guestName 
 
             {/* Couple illustration on a soft rose halo */}
             <Reveal delay={0.45} className="relative mx-auto mt-8 w-[min(62vw,15rem)]">
-              <div className="absolute inset-x-[-12%] bottom-[2%] top-[18%] rounded-t-full bg-gradient-to-b from-[#fde3ea] to-[#f6c9d3]/70 border border-[#C9A46A]/50" />
+              <div className="absolute inset-x-[-12%] bottom-[2%] top-[18%] rounded-t-full bg-gradient-to-b from-[#fde3ea] to-[#f2bccb] border-2 border-[#C9A46A] shadow-[inset_0_0_30px_rgba(106,30,51,0.25)]" />
               <img
                 src="/couple-illustration.webp"
                 alt="Illustration of the bride and groom"
                 loading="lazy"
-                className="relative w-full h-auto select-none drop-shadow-[0_18px_20px_rgba(106,30,51,0.25)]"
+                className="relative w-full h-auto select-none drop-shadow-[0_18px_20px_rgba(60,10,25,0.35)]"
                 draggable={false}
               />
               <div className="relative -mt-1 h-px w-[124%] -ml-[12%] bg-gradient-to-r from-transparent via-[#C9A46A] to-transparent" />
@@ -204,13 +191,13 @@ export const InvitationSection: React.FC<{ guestName?: string }> = ({ guestName 
 
             <Reveal delay={0.5} className="mt-6">
               <p className="font-['Pinyon_Script',_cursive] text-6xl sm:text-7xl leading-tight">
-                <span style={WINE_TEXT}>{COUPLE.groom}</span>
+                <span style={GOLD_TEXT}>{COUPLE.groom}</span>
               </p>
               <p className="font-['Pinyon_Script',_cursive] text-4xl leading-none my-1">
-                <span style={GOLD_TEXT} className="[filter:drop-shadow(0_1px_0_rgba(106,30,51,0.25))]">&amp;</span>
+                <span className="font-['Cormorant_Garamond',_serif] italic text-[#f2bccb] text-3xl">&amp;</span>
               </p>
               <p className="font-['Pinyon_Script',_cursive] text-6xl sm:text-7xl leading-tight">
-                <span style={WINE_TEXT}>{COUPLE.bride}</span>
+                <span style={GOLD_TEXT}>{COUPLE.bride}</span>
               </p>
             </Reveal>
           </div>
@@ -222,7 +209,7 @@ export const InvitationSection: React.FC<{ guestName?: string }> = ({ guestName 
 
 /** Date, venue and time on burgundy velvet. */
 export const DateSection: React.FC = () => (
-  <section className="relative px-4 py-20 sm:py-28 text-[#FFF3F5] overflow-hidden" style={VELVET}>
+  <section className="relative px-4 py-20 sm:py-28 text-[#FFF3F5] overflow-hidden bg-[#2e0a15]/55">
     <div className="absolute inset-4 sm:inset-8 border border-[#C9A46A]/40 pointer-events-none" />
     <div className="absolute inset-6 sm:inset-10 border border-[#C9A46A]/20 pointer-events-none" />
     <Corner className="top-4 left-4 sm:top-8 sm:left-8" />
@@ -263,6 +250,20 @@ export const DateSection: React.FC = () => (
             {WEDDING.venueAddress}
           </Serif>
         )}
+
+        {/* Hotel photo in a gold frame */}
+        <div className="relative mx-auto mt-8 w-full max-w-2xl rounded-t-[2.5rem] rounded-b-lg p-[3px] bg-gradient-to-b from-[#ecd3a4] via-[#C9A46A] to-[#a77a3f] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.6)]">
+          <div className="rounded-t-[2.35rem] rounded-b-md p-1.5 bg-[#4a1222]">
+            <img
+              src="/venue-hotel.webp"
+              alt={`${WEDDING.venue}, ${WEDDING.venueAddress}`}
+              loading="lazy"
+              className="block w-full aspect-[1280/695] object-cover rounded-t-[2.1rem] rounded-b select-none"
+              draggable={false}
+            />
+          </div>
+        </div>
+
         <a
           href={WEDDING.mapUrl}
           target="_blank"
@@ -305,38 +306,61 @@ export const CountdownSection: React.FC<{ targetDate: Date }> = ({ targetDate })
   }, [targetDate]);
 
   return (
-    <section className="px-4 py-20 sm:py-28" style={BLUSH_BG}>
-      <Reveal className="text-center">
-        <Eyebrow>Counting down to forever</Eyebrow>
-        <p className="font-['Pinyon_Script',_cursive] text-5xl sm:text-6xl mt-3 leading-tight">
-          <span style={WINE_TEXT}>Until We Say I Do</span>
-        </p>
-        <Sprig className="w-32 mt-3" />
-        <div className="mt-10 mx-auto grid max-w-xl grid-cols-4 gap-2 sm:gap-5">
-          {Object.entries(left).map(([label, value], i) => (
-            <motion.div
-              key={label}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1 * i, ease: EASE }}
-              className="flex flex-col items-center"
-            >
-              <div
-                className="relative flex aspect-square w-full max-w-[7rem] items-center justify-center rounded-full shadow-[0_0_0_2px_#FFF3F5,0_0_0_3.5px_#C9A46A,0_18px_30px_-12px_rgba(106,30,51,0.6)]"
-                style={VELVET}
-              >
-                <span className="font-['Cormorant_Garamond',_serif] text-3xl sm:text-5xl font-semibold tabular-nums leading-none">
-                  <span style={GOLD_TEXT}>{String(value).padStart(2, '0')}</span>
-                </span>
-              </div>
-              <span className="mt-3 font-['Cinzel',_serif] text-[9px] sm:text-[11px] tracking-[0.2em] uppercase text-[#6A1E33]">
-                {label}
-              </span>
-            </motion.div>
-          ))}
+    <section className="relative h-screen h-[100svh] overflow-hidden bg-[#2e0a15]">
+      {/* Blurred fill for screens wider than the picture */}
+      <img
+        src="/bg-curtain.webp"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        className="absolute inset-0 w-full max-w-none object-cover scale-110 blur-2xl opacity-60 pointer-events-none select-none"
+        style={{ height: '100%' }}
+        draggable={false}
+      />
+      <div
+        className="absolute left-1/2 top-0 h-full -translate-x-1/2 [container-type:inline-size]"
+        style={{ width: `calc(100svh * ${CURTAIN_RATIO})` }}
+      >
+        <img
+          src="/bg-curtain.webp"
+          alt=""
+          loading="lazy"
+          className="absolute inset-0 w-full max-w-none object-cover select-none"
+          style={{ height: '100%' }}
+          draggable={false}
+        />
+
+        {/* Inside the ornate oval */}
+        <div className="absolute left-1/2 top-[44.5%] -translate-x-1/2 -translate-y-1/2 w-[48%] text-center">
+          <Reveal>
+            <p className="font-['Cinzel',_serif] text-[max(8px,2.1cqw)] tracking-[0.35em] pl-[0.35em] uppercase text-[#ecd3a4]">
+              Counting down
+            </p>
+            <p className="font-['Pinyon_Script',_cursive] text-[6.3cqw] leading-tight mt-[1cqw]">
+              <span style={GOLD_TEXT}>Until We Say I Do</span>
+            </p>
+            <Sprig className="w-[60%] mt-[1cqw] mb-[4cqw]" color="#ecd3a4" />
+            <div className="grid grid-cols-2 gap-y-[4cqw]">
+              {Object.entries(left).map(([label, value], i) => (
+                <div
+                  key={label}
+                  className={`flex flex-col items-center ${i % 2 === 0 ? 'border-r border-[#C9A46A]/40' : ''}`}
+                >
+                  <span className="font-['Cormorant_Garamond',_serif] text-[10cqw] font-semibold tabular-nums leading-none">
+                    <span style={GOLD_TEXT}>{String(value).padStart(2, '0')}</span>
+                  </span>
+                  <span className="mt-[1cqw] font-['Cinzel',_serif] text-[max(8px,2cqw)] tracking-[0.2em] pl-[0.2em] uppercase text-[#f2bccb]">
+                    {label}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <p className="mt-[4cqw] font-['Cinzel',_serif] text-[max(8px,2.1cqw)] tracking-[0.3em] pl-[0.3em] text-[#ecd3a4]">
+              {WEDDING.day} . 12 . {WEDDING.year}
+            </p>
+          </Reveal>
         </div>
-      </Reveal>
+      </div>
     </section>
   );
 };
@@ -365,48 +389,4 @@ export const RsvpContacts: React.FC = () => (
       ))}
     </div>
   </Reveal>
-);
-
-/** Looping wedding-stage video inside a gold-framed arch. */
-export const VideoSection: React.FC = () => (
-  <section
-    className="px-4 py-20 sm:py-28 text-center"
-    style={{ background: 'linear-gradient(180deg, #FFF3F5 0%, #fbe4e9 50%, #FFF3F5 100%)' }}
-  >
-    <Reveal>
-      <Eyebrow>A love story in bloom</Eyebrow>
-      <p className="font-['Pinyon_Script',_cursive] text-5xl sm:text-6xl mt-3 leading-tight">
-        <span style={WINE_TEXT}>Two Hearts, One Journey</span>
-      </p>
-      <Sprig className="w-32 mt-3 mb-10" />
-    </Reveal>
-
-    <Reveal delay={0.15} className="relative mx-auto w-[min(78vw,22rem)]">
-      {/* Gold arch frame */}
-      <div className="rounded-t-full p-[3px] bg-gradient-to-b from-[#ecd3a4] via-[#C9A46A] to-[#a77a3f] shadow-[0_40px_70px_-30px_rgba(106,30,51,0.7)]">
-        <div className="rounded-t-full p-2 sm:p-3" style={VELVET}>
-          <div className="rounded-t-full p-px bg-[#C9A46A]/70">
-            <video
-              className="block w-full aspect-[9/16] object-cover rounded-t-full"
-              src="/wedding-loop.mp4"
-              poster="/wedding-loop-poster.webp"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-            />
-          </div>
-        </div>
-      </div>
-      <Corner className="-bottom-3 -left-3 -scale-y-100" />
-      <Corner className="-bottom-3 -right-3 -scale-100" />
-    </Reveal>
-
-    <Reveal delay={0.25} className="mt-10">
-      <Serif className="italic text-xl sm:text-2xl text-[#6A1E33] max-w-md mx-auto leading-snug">
-        &ldquo;Two souls, one heart, and a lifetime of love begins here.&rdquo;
-      </Serif>
-    </Reveal>
-  </section>
 );

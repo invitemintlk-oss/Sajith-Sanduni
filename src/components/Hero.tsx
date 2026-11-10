@@ -11,8 +11,8 @@ interface HeroProps {
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 const CARD = '/hero-card.webp';
-/** Width / height of the hero card image (941 x 1672). */
-const CARD_RATIO = 941 / 1672;
+/** Width / height of the hero card image (941 x 1670). */
+const CARD_RATIO = 941 / 1670;
 
 // Light champagne-gold text that reads on the burgundy oval.
 const CHAMPAGNE_TEXT: React.CSSProperties = {
